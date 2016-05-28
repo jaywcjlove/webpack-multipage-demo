@@ -1,0 +1,37 @@
+{
+  "name": "o2o",
+  "version": "1.0.1",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --devtool eval --progress --colors --host 10.1.127.193",
+    "build": "rm -rf deploy && webpack "
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "autoprefixer-stylus": "^0.9.2",
+    "css-loader": "^0.23.1",
+    "ejs2-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "glob": "^7.0.3",
+    "hotkeys-js": "^1.0.4",
+    "html-webpack-plugin": "^2.15.0",
+    "style-loader": "^0.13.1",
+    "stylus-px2rem": "^1.0.6",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {
+    "ejs-webpack-builder": "^1.0.0",
+    "postcss-loader": "^0.8.2",
+    "stylus": "^0.54.2",
+    "stylus-loader": "^2.0.0"
+  }
+}
