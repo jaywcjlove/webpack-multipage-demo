@@ -1,6 +1,6 @@
 {
-  "name": "o2o",
-  "version": "1.0.1",
+  "name": "webpack-multipage",
+  "version": "1.0.0",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/jaywcjlove/webpack-multipage.git"
   },
   "dependencies": {
     "autoprefixer-stylus": "^0.9.2",
