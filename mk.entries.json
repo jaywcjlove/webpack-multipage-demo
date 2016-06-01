@@ -1,5 +1,6 @@
 [
     "public/html/index/index.ejs",
     "public/html/sorting/index.ejs",
+    "public/html/sorting/a/a.ejs",
     "public/html/sorting/test.ejs"
 ]

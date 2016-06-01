@@ -6,6 +6,7 @@ var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 var autoprefixer = require('autoprefixer-stylus');
 var px2rem = require('stylus-px2rem');
 var glob = require('glob')
+var Manifest= require('webpack-manifest');
 
 var pkg =require('./package');
 
@@ -158,12 +159,20 @@ module.exports = function(files){
       new ExtractTextPlugin('css/[contenthash:8].[name].css', {
         allChunks: true
       }),
+      new Manifest({
+        filename:'app1.manifest',
+        network:['vendor.js','index/index.html'],
+        fallback:{
+          "/html5/":"/404.html"
+        }
+      }),
       new CommonsChunkPlugin({
         // 存储 webpack 必要的依赖
         filename: "js/[hash:8].vendor.js",
         name: "vendor",
-        // chunks: "vendor",
-        minChunks: Infinity
+        // chunks: ['a', 'b'],
+        // minChunks: Infinity,
+        // minChunks: 1 // 提取所有chunks共同依赖的模块   
       }),
       // new webpack.optimize.UglifyJsPlugin({
       //   compress: {
