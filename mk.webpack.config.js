@@ -146,7 +146,7 @@ module.exports = function(files){
         {test: /\.json$/, loader: 'json'},
         {
           test:/\.(jpg|gif|png|woff|woff2|eot|ttf|svg)$/,
-          loaders:['url-loader?limit=4000,name=/[path][hash:8].[name].[ext]']
+          loaders:['url-loader?limit=4000,name=/img/[hash:8].[name].[ext]']
         }
       ]
     },
@@ -158,13 +158,6 @@ module.exports = function(files){
       new webpack.HotModuleReplacementPlugin(),
       new ExtractTextPlugin('css/[contenthash:8].[name].css', {
         allChunks: true
-      }),
-      new Manifest({
-        filename:'app1.manifest',
-        network:['vendor.js','index/index.html'],
-        fallback:{
-          "/html5/":"/404.html"
-        }
       }),
       new CommonsChunkPlugin({
         // 存储 webpack 必要的依赖
@@ -181,7 +174,23 @@ module.exports = function(files){
       //   sourceMap: true,//这里的soucemap 不能少，可以在线上生成soucemap文件，便于调试
       //   mangle: true
       // }),
-    ].concat(plugins)
+    ].concat(plugins).concat([
+      new Manifest({
+          cache: [
+            'js/[hash:8].sorting-index.js', 
+            'css/[hash:8].sorting-test.css',
+            'css/[hash:8].index-index.css',
+            'img/[hash:8].logo.png'
+          ],
+          timestamp: true,
+          filename:'cache.manifest',
+          network: ['http://*', 'https://*'],
+          fallback: ['/ /404.html'],
+          headcomment: pkg.name + " v" + pkg.version,
+          master: ['index/index.html'],
+          reg:[],
+      })
+    ])
   }
   return webpackConfig
 }
