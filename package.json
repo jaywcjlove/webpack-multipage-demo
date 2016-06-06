@@ -5,8 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --devtool eval --progress --colors",
-    "build": "rimraf deploy && webpack",
-    "build:min": "rimraf deploy && webpack -p"
+    "build": "rimraf deploy && cross-env NODE_ENV=production webpack",
+    "build:min": "rimraf deploy && cross-env NODE_ENV=production webpack -p"
   },
   "author": "",
   "license": "MIT",
@@ -19,9 +19,11 @@
   },
   "devDependencies": {
     "autoprefixer-stylus": "~0.9.2",
+    "cross-env": "^1.0.8",
     "css-loader": "~0.23.1",
     "ejs-webpack-builder": "~1.0.0",
     "ejs2-loader": "~1.0.0",
+    "extract-text-webpack-plugin": "~1.0.1",
     "file-loader": "~0.8.5",
     "glob": "~7.0.3",
     "html-webpack-plugin": "~2.15.0",
@@ -34,7 +36,6 @@
     "url-loader": "~0.5.7",
     "webpack": "~1.13.0",
     "webpack-dev-server": "~1.14.1",
-    "extract-text-webpack-plugin": "~1.0.1",
-    "webpack-manifest": "^1.0.2"
+    "webpack-manifest": "^1.0.4"
   }
 }
